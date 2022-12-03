@@ -1,0 +1,66 @@
+---
+- name: "하드웨어 정보 수집 프로그램 제작"
+  hosts: all
+  gather_facts: yes
+  tasks:
+  # 1) 파일 배포 - scp files/hwreport.txt ansible#:/root/hwreport.txt
+  # 2) 'inventoryhostname' 값 설정
+  # 3) 'totalmem' 값 설정
+  # 4) 'biosversion' 값 설정
+  # 5) 'sdasize' 값 설정
+  - name: "1) 파일 배포 - scp files/hwreport.txt ansible#:/root/hwreport.txt"
+    copy: 
+      src: files/hwreport.txt
+      dest: /root/hwreport.txt
+      owner: root
+      group: root
+      mode: '0400'
+
+  - name: "2) 'inventoryhostname' 값 설정"
+    replace:
+      path: /root/hwreport.txt
+      regexp: inventoryhostname
+      replace: "{{ ansible_hostname }}"
+
+  - name: "3) 'totalmem' 값 설정"
+    replace:
+      path: /root/hwreport.txt
+      regexp: totalmem
+      replace: "{{ ansible_memtotal_mb }}"
+
+  - name: "4) 'biosversion' 값 설정"
+    replace:
+      path: /root/hwreport.txt
+      regexp: biosversion
+      replace: "{{ ansible_bios_version }}"
+
+  - name: "5) 'sdasize' 값 설정"
+    replace:
+      path: /root/hwreport.txt
+      regexp: sdasize
+      replace: "{{ ansible_devices.sda.size }}"
+
+- name: "하드웨어 정보 수집"
+  hosts: all
+  tasks:
+#  - name: "각 /root/hwreport.txt 파일을 가져오기"
+#    fetch:
+#      src: /root/hwreport.txt
+#      dest: "result/hwreport-{{ inventory_hostname }}"
+
+#  - name: "각 /root/hwreport.txt 파일을 가져오기"
+#    fetch:
+#      src: /root/hwreport.txt
+#      dest: "result/hwreport/"
+
+#  - name: "각 /root/hwreport.txt 파일을 가져오기"
+#    fetch:
+#      src: /root/hwreport.txt
+#      dest: "result/hwreport-{{ inventory_hostname }}.txt"
+#      flat: yes
+
+  - name: "각 /root/hwreport.txt 파일을 가져오기"
+    fetch:
+      src: /root/hwreport.txt
+      dest: "result/{{ inventory_hostname }}/"
+      flat: yes

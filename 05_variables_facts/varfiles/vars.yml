@@ -1,0 +1,11 @@
+pkg_http: httpd
+pkg_https: mod_ssl
+pkg_fw: firewalld
+conf_httpd: httpd.conf
+cert_conf_httpaccess: .htaccess
+cert_idpass_htpasswd: htpasswd
+src_web: index.html
+svc_web: httpd
+svc_fw: firewalld
+fw_http: http
+fw_https: https

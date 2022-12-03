@@ -1,0 +1,13 @@
+---
+- name : restore_playbook 복원
+  hosts: webservers
+  gather_facts: true
+  tasks:
+    - name: 깔아놨던 패키지 삭제
+      yum:
+        name: httpd
+        state: absent
+    - name:  파일 삭제
+      file:
+        path: /var/www/html/index.html
+        state: absent

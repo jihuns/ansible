@@ -1,0 +1,38 @@
+---
+- name: Install and start apache httpd
+  hosts: webservers
+  tasks:
+    # yum install httpd
+    - name: Install a package - httpd
+      yum: 
+        name: httpd
+        state: latest
+
+    # scp files/index.html ansible#:/var/www/html/index.html
+    - name: copy from files/index.html to /var/www/html/index.html
+      copy:
+        src: files/index.html
+        dest: /var/www/html/index.html
+
+    # systemctl enable httpd
+    # systemctl restart httpd
+    - name: start the web service - httpd
+      service:
+        name: httpd
+        state: restarted
+        enabled: yes
+
+    # systemctl enable --now firewalld
+    # firewall-cmd --permanent --add-service=http ; firewall-cmd --reload
+    - name: start the firewall - firewalld
+      service:
+        name: firewalld
+        state: started
+        enabled: yes
+    - name: Open the service with firewalld - http(80/tcp)
+      firewalld:
+        service: http
+        state: enabled
+        permanent: yes
+        immediate: yes
+

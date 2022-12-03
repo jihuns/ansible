@@ -1,0 +1,13 @@
+- name: "복구 작업 수행하기 - restore_playbook.yml"
+  hosts: all
+  vars:
+    mariadb_packages:
+      - mariadb-server
+      - python3-PyMySQL
+  tasks:
+    - name: "패키지 삭제하기 - mariadb-server, python3-PyMySQL"
+      yum:
+        name: "{{ item }}"
+        state: absent
+      loop: "{{ mariadb_packages }}"
+      when: ( ansible_distribution == 'CentOS' ) or ( ansible_distribution == "RedHat" )

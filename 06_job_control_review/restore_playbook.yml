@@ -1,0 +1,44 @@
+---
+- name: Restore the playbooks.
+  # 1) remote the files
+  #   - /etc/pki/*
+  #   - /var/www/html/*
+  # 2) stop/disable the services
+  #   - httpd
+  # 3) remove the packages
+  #   - httpd
+  #   - mod_ssl
+  # 4) close the ports
+  #   - http
+  #   - https
+  hosts: all
+  vars_files: vars.yml
+  gather_facts: no
+  tasks:
+    - name: remote the files - /etc/pki/*, /var/www/html/*
+      file:
+        path: "{{ item.dest }}"
+        state: absent
+      loop: "{{ web_config_files }}"
+
+    - name: stop/disable the services
+      service: 
+        name: httpd
+        state: stopped
+        enabled: no
+      ignore_errors: yes
+
+    - name: remove the packages
+      yum:
+        name: "{{ packages }}"
+        state: absent
+
+    - name: close the ports - http, https
+      firewalld:
+        service: "{{ item }}"
+        permanent: no
+        immediate: no
+        state: disabled
+      loop: 
+        - http
+        - https

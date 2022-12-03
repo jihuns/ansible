@@ -1,0 +1,12 @@
+---
+- name: "copy files from control host to target host"
+  hosts: all
+  gather_facts: no
+  tasks:
+    - name: "files/users.txt --> ansible#:/home/devops/users.txt"
+      copy:
+        src: files/users.txt
+        dest: /home/devops/users.txt
+        owner: devops
+        group: devops
+        mode: '0640'

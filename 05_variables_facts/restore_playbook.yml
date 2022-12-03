@@ -1,0 +1,35 @@
+- name: "복구하기"
+  gather_facts: no
+  hosts: ansible4
+  vars_files:
+    - varfiles/vars.yml
+  tasks:
+    - name: "방화벽에서 서비스 포트 닫기"
+      firewalld:
+        service: "{{ item }}"
+        state: disabled
+        permanent: yes
+        immediate: yes
+      loop:
+        - "{{ fw_http }}"
+        - "{{ fw_https }}"
+
+    - name: "/etc/httpd/secrets 디렉토리 삭제하기"
+      file:
+        path: /etc/httpd/secrets
+        recurse: yes
+        state: directory
+    
+    - name: "파일 삭제하기 - /var/www/html/{index.html,.htaccess}" 
+      file:
+        path: "/var/www/html/{{ item }}"
+        state: absent
+      loop:
+        - "{{ src_web }}"
+        - "{{ cert_conf_httpaccess }}"
+
+    - name: "패키지 삭제하기"
+      yum:
+        name: "{{ pkg_http }}"
+        state: absent
+        

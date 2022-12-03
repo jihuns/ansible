@@ -1,0 +1,5 @@
+---
+- name: Create placeholder firewall
+  copy:
+    content: "{{ ansible_facts['fqdn'] }} has been customizing using Ansible."
+    dest: "{{ file }}"

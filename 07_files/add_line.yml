@@ -1,0 +1,11 @@
+---
+- name: 파일안에 한줄 추가하기
+  hosts: all
+  gather_facts: no
+  tasks:
+    - name: "/home/devops/users.txt 파일에 내용 한줄 추가하기"
+      lineinfile:
+        path: /home/devops/users.txt
+        regexp: 'line'
+        line: This is a test block.
+        state: present

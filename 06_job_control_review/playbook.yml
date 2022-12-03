@@ -1,0 +1,61 @@
+---
+- name: Playbook Job Control
+  hosts: webservers
+  vars_files: vars.yml
+  tasks:
+    # 1) Check requirement about H/W - memory => fail ~ when
+    - name: "1) Check requirement about H/W - memory => fail ~ when"
+      fail: 
+        msg: "No pass H/W requirement."
+      when: min_ram_mb > ansible_memtotal_mb
+    
+    # 2) Install web package
+    - name: "2) Install web package"
+      yum: 
+        name: "{{ packages }}"
+        state: present
+
+    # 3) Start/Enable the web service
+    - name: "3) Start/Enable the web service"
+      service:
+        name: "{{ web_service }}"
+        state: started
+        enabled: yes
+
+    # 4) Copy file from master host(ssl key) to control node(ssl key)
+    #   -> notify ~ handler => restart the web service
+    - name: "4) Copy file from master host(ssl key) to control node(ssl key)"
+      block:
+        - name: "check directory - /etc/pki/tls/private"
+          file:
+            path: "{{ ssl_cert_dir }}"
+            state: directory
+        - name: "Copy files"
+          copy:
+            src: "{{ item.src }}"
+            dest: "{{ item.dest }}"
+            force: yes
+          loop: "{{ web_config_files }}"
+          notify: restart web service
+      rescue:
+        - name: configuration Error Message
+          debug:
+            msg: >
+              One or more of the configuration 
+              changes failed. but the web service
+              is still active.
+
+    # 5) Opent the firewall service/port(https/443/tcp, http/80/tcp)
+    - name: "5) Opent the firewall service/port(https/443/tcp, http/80/tcp)"
+      firewalld:
+        service: "{{ item }}"
+        state: enabled
+        permanent: yes
+        immediate: yes
+      loop: "{{ fw_service }}" 
+
+  handlers:
+    - name: restart web service
+      service:
+        name: "{{ web_service }}"
+        state: restarted

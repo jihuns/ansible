@@ -1,0 +1,8 @@
+[control_node]
+localhost
+
+[intranetweb]
+web1.example.com
+web2.example.com
+web3.example.com
+web4.example.com

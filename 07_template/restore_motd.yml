@@ -1,0 +1,8 @@
+---
+- name: Restore /etc/motd
+  hosts: all
+  gather_facts: no
+  tasks:
+    - name: Clear the content in /etc/motd file using shell module
+      shell:
+        cmd: " > /etc/motd"

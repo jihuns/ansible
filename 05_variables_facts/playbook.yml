@@ -1,0 +1,87 @@
+---
+- name: "고급 웹서버 구축하기"
+  hosts: ansible4
+  gather_facts: no
+  vars_files:
+    - varfiles/vars.yml
+  tasks:
+    # 1) 패키지 설치 - httpd, mod_ssl, firewalld
+    - name: "1) 패키지 설치 - httpd, mod_ssl, firewalld"
+      yum: 
+        name:
+          - "{{ pkg_http }}"
+          - "{{ pkg_https }}"
+          - "{{ pkg_fw }}"
+        state: present
+    
+    # 2) 서비스 설정
+    # 2-1) scp files/httpd.conf ansible4:/etc/httpd/conf/httpd.conf
+    - name: "2-1) 서비스 설정 - scp files/httpd.conf ansible4:/etc/httpd/conf/httpd.conf"
+      copy:
+        src: "files/{{ conf_httpd }}" 
+        dest: "/etc/httpd/conf/{{ conf_httpd }}"
+        force: yes
+    # 2-2) scp files/.htaccess ansible4:/var/www/html/.htaccess
+    - name: "2-1) 서비스 설정 - scp files/httpd.conf ansible4:/etc/httpd/conf/httpd.conf"
+      copy: 
+        src: "files/{{ cert_conf_httpaccess }}"
+        dest: "/var/www/html/{{ cert_conf_httpaccess }}"
+    # 2-3) scp files/htpasswd ansible4:/etc/httpd/secrets/htpasswd
+    # mkdir -p /etc/httpd/secrets
+    # chmod 400 /etc/httpd/secrets/htpasswd
+    - name: "2-3) 서비스 설정 - mkdir -p /etc/httpd/secrets"
+      file:
+        path: /etc/httpd/secrets
+        state: directory
+        mode: '0755'
+    - name: "2-3) 서비스 설정 - scp files/htpasswd ansible4:/etc/httpd/secrets/htpasswd"        
+      copy: 
+        src: "files/{{ cert_idpass_htpasswd }}"
+        dest: "/etc/httpd/secrets/{{ cert_idpass_htpasswd }}"
+        mode: '0644'
+    # 2-4) scp files/index.html ansible4:/var/www/html/index.html
+    - name: "2-4) 서비스 설정 - scp files/index.html ansible4:/var/www/html/index.html"
+      copy:
+        src: "files/{{ src_web }}"
+        dest: "/var/www/html/{{ src_web }}"
+
+    # 3) 서비스 기동 - httpd, firewalld
+    - name: "3) 서비스 기동 - httpd, firewalld"
+      service:
+        name: "{{ item }}"
+        state: started
+        enabled: yes
+      loop:
+        - "{{ svc_web }}"
+        - "{{ svc_fw }}"
+
+    # 4) 방화벽 등록 - http, https
+    - name: "4) 방화벽 등록 - http, https"
+      firewalld:
+        service: "{{ item }}"
+        state: enabled
+        permanent: yes
+        immediate: yes
+      loop:
+        - "{{ fw_http }}"        
+        - "{{ fw_https }}"
+
+- name: "5) 클라이언트에서 웹테스트하기"
+  hosts: localhost
+  gather_facts: no
+  vars_files:
+    - varfiles/secret.yml
+  tasks:
+    - name: "웹서버에 클라이언트에서 테스트 하기"
+      uri:
+        url: https://ansible4.example.com
+        validate_certs: no
+        user: "{{ web_user }}"
+        password: "{{ web_pass }}"
+        force_basic_auth: yes
+        status_code: 200
+        return_content: yes
+      register: auth_output
+    - debug: 
+        var: auth_output.content
+  

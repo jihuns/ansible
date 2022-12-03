@@ -1,0 +1,12 @@
+---
+- name: "test the lineinblock module"
+  gather_facts: no
+  hosts: all
+  tasks:
+    - name: 'Add a block text in /home/devops/users.txt'
+      blockinfile:
+        path: /home/devops/users.txt
+        block: |
+          This block of text consists of two lines.
+          They have been added by the blockinfile module.
+          

@@ -1,0 +1,23 @@
+---
+- name: "MariaDB 서비스 동작"
+  hosts: database_prod
+  gather_facts: yes
+  vars:
+    mariadb_packages:
+      - mariadb-server
+      - python3-PyMySQL
+
+  tasks:
+    - name: "MariaDB 패키지 설치"
+      yum: 
+        name: "{{ item }}"
+        state: present
+      loop: "{{ mariadb_packages }}"
+      when: ansible_distribution == 'CentOS'
+
+    - name: "MariaDB 서비스 기동"
+      service:
+        name: mariadb
+        state: started
+        enabled: true
+              

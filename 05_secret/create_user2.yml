@@ -1,0 +1,10 @@
+---
+- name: "사용자 추가하기"
+  hosts: web2
+  vars_files:
+  - secret2.yml
+  tasks:
+  - name: "ansibleuser1 사용자 추가하기"
+    user:
+      name: "{{ username }}"
+      password: "{{ pwhash|password_hash('sha512') }}"

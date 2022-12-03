@@ -1,0 +1,15 @@
+---
+- name: Configure /etc/motd
+  hosts: all
+  vars:
+    - system_owner: "webmaster@example.com"
+  tasks:
+    - name: Configure /etc/motd to all hosts
+      template:
+        src: template1/motd.j2
+        dest: /etc/motd
+        owner: root
+        group: root
+        mode: '0644'
+
+

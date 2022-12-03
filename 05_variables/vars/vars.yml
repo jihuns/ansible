@@ -1,0 +1,11 @@
+---
+pkg_web: httpd
+pkg_web_mod: mod_ssl
+pkg_fw: firewalld
+dir_base: /var/www/html
+file_web_src: index.html
+file_web_src_file: "{{ dir_base }}/{{ file_web_src }}"
+svc_web: httpd
+svc_fw: firewalld
+fw_http: http
+fw_https: https

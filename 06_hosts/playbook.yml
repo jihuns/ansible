@@ -1,0 +1,13 @@
+---
+- name: "/etc/hosts 파일에 대한 작업"
+  hosts: all
+  gather_facts: no
+  tasks:
+    - name: "/etc/hosts 파일을 모든 시스템에 복사하기"
+      copy: 
+        src: files/hosts
+        dest: /etc/hosts
+        owner: root
+        group: root
+        mode: '0644'
+        force: yes

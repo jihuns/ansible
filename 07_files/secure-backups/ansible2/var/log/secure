@@ -1,0 +1,115 @@
+Nov 21 22:10:22 ansible2 sshd[101540]: Accepted publickey for ansible from 192.168.10.10 port 54780 ssh2: RSA SHA256:qNrfY3UCGpXtK5mphLmycwcYI/XX+MEF63YwZsYoYoI
+Nov 21 22:10:22 ansible2 systemd[101545]: pam_unix(systemd-user:session): session opened for user ansible by (uid=0)
+Nov 21 22:10:23 ansible2 sshd[101540]: pam_unix(sshd:session): session opened for user ansible by (uid=0)
+Nov 21 22:10:23 ansible2 sudo[101771]: ansible : TTY=pts/0 ; PWD=/home/ansible ; USER=root ; COMMAND=/bin/sh -c echo BECOME-SUCCESS-xbbrdsmnrrhjztqouaroctgitrtkpxqg ; /usr/libexec/platform-python /home/ansible/.ansible/tmp/ansible-tmp-1669036223.1066093-94289-10436797231686/AnsiballZ_command.py
+Nov 21 22:10:23 ansible2 sudo[101771]: pam_systemd(sudo:session): Cannot create session: Already running in a session or user slice
+Nov 21 22:10:23 ansible2 sudo[101771]: pam_unix(sudo:session): session opened for user root by ansible(uid=0)
+Nov 21 22:10:23 ansible2 sudo[101771]: pam_unix(sudo:session): session closed for user root
+Nov 21 22:10:57 ansible2 sudo[101977]: ansible : TTY=pts/0 ; PWD=/home/ansible ; USER=root ; COMMAND=/bin/sh -c echo BECOME-SUCCESS-aacfmdyoqbvbysjfvhcngrwmqazaclry ; /usr/libexec/platform-python /home/ansible/.ansible/tmp/ansible-tmp-1669036256.8182817-94364-12898812125051/AnsiballZ_setup.py
+Nov 21 22:10:57 ansible2 sudo[101977]: pam_systemd(sudo:session): Cannot create session: Already running in a session or user slice
+Nov 21 22:10:57 ansible2 sudo[101977]: pam_unix(sudo:session): session opened for user root by ansible(uid=0)
+Nov 21 22:10:58 ansible2 sudo[101977]: pam_unix(sudo:session): session closed for user root
+Nov 21 22:11:30 ansible2 sudo[102227]: ansible : TTY=pts/0 ; PWD=/home/ansible ; USER=root ; COMMAND=/bin/sh -c echo BECOME-SUCCESS-vzwkoltpfonmzllrpevlqwjxtggmswgf ; /usr/libexec/platform-python /home/ansible/.ansible/tmp/ansible-tmp-1669036289.6808434-94437-83274512215491/AnsiballZ_setup.py
+Nov 21 22:11:30 ansible2 sudo[102227]: pam_systemd(sudo:session): Cannot create session: Already running in a session or user slice
+Nov 21 22:11:30 ansible2 sudo[102227]: pam_unix(sudo:session): session opened for user root by ansible(uid=0)
+Nov 21 22:11:31 ansible2 sudo[102227]: pam_unix(sudo:session): session closed for user root
+Nov 21 22:11:31 ansible2 sudo[102420]: ansible : TTY=pts/0 ; PWD=/home/ansible ; USER=root ; COMMAND=/bin/sh -c echo BECOME-SUCCESS-ofwrjmjcylznwezqtzibnhuseuktfotq ; /usr/libexec/platform-python /home/ansible/.ansible/tmp/ansible-tmp-1669036291.2518258-94466-240736533506597/AnsiballZ_dnf.py
+Nov 21 22:11:31 ansible2 sudo[102420]: pam_systemd(sudo:session): Cannot create session: Already running in a session or user slice
+Nov 21 22:11:31 ansible2 sudo[102420]: pam_unix(sudo:session): session opened for user root by ansible(uid=0)
+Nov 21 22:11:39 ansible2 groupadd[102440]: group added to /etc/group: name=mysql, GID=27
+Nov 21 22:11:39 ansible2 groupadd[102440]: group added to /etc/gshadow: name=mysql
+Nov 21 22:11:40 ansible2 groupadd[102440]: new group: name=mysql, GID=27
+Nov 21 22:11:40 ansible2 useradd[102446]: new user: name=mysql, UID=27, GID=27, home=/var/lib/mysql, shell=/sbin/nologin
+Nov 21 22:11:46 ansible2 sudo[102420]: pam_unix(sudo:session): session closed for user root
+Nov 21 22:11:46 ansible2 sudo[103372]: ansible : TTY=pts/0 ; PWD=/home/ansible ; USER=root ; COMMAND=/bin/sh -c echo BECOME-SUCCESS-hwvyrwuvgqzxndtrespzejyvqfqowgqb ; /usr/libexec/platform-python /home/ansible/.ansible/tmp/ansible-tmp-1669036306.6413817-94466-118938410272787/AnsiballZ_dnf.py
+Nov 21 22:11:46 ansible2 sudo[103372]: pam_systemd(sudo:session): Cannot create session: Already running in a session or user slice
+Nov 21 22:11:46 ansible2 sudo[103372]: pam_unix(sudo:session): session opened for user root by ansible(uid=0)
+Nov 21 22:11:51 ansible2 sudo[103372]: pam_unix(sudo:session): session closed for user root
+Nov 21 22:11:51 ansible2 sudo[103540]: ansible : TTY=pts/0 ; PWD=/home/ansible ; USER=root ; COMMAND=/bin/sh -c echo BECOME-SUCCESS-rcwaxwexrehnvrxmheqrmyipkuftstby ; /usr/libexec/platform-python /home/ansible/.ansible/tmp/ansible-tmp-1669036311.466726-94530-16727428874614/AnsiballZ_systemd.py
+Nov 21 22:11:52 ansible2 sudo[103540]: pam_systemd(sudo:session): Cannot create session: Already running in a session or user slice
+Nov 21 22:11:52 ansible2 sudo[103540]: pam_unix(sudo:session): session opened for user root by ansible(uid=0)
+Nov 21 22:11:56 ansible2 sudo[103540]: pam_unix(sudo:session): session closed for user root
+Nov 21 22:12:56 ansible2 sshd[101558]: Received disconnect from 192.168.10.10 port 54780:11: disconnected by user
+Nov 21 22:12:56 ansible2 sshd[101558]: Disconnected from user ansible 192.168.10.10 port 54780
+Nov 21 22:12:56 ansible2 sshd[101540]: pam_unix(sshd:session): session closed for user ansible
+Nov 21 22:15:50 ansible2 sshd[103831]: Accepted publickey for ansible from 192.168.10.10 port 54786 ssh2: RSA SHA256:qNrfY3UCGpXtK5mphLmycwcYI/XX+MEF63YwZsYoYoI
+Nov 21 22:15:50 ansible2 systemd[103835]: pam_unix(systemd-user:session): session opened for user ansible by (uid=0)
+Nov 21 22:15:50 ansible2 sshd[103831]: pam_unix(sshd:session): session opened for user ansible by (uid=0)
+Nov 21 22:15:51 ansible2 sudo[104059]: ansible : TTY=pts/0 ; PWD=/home/ansible ; USER=root ; COMMAND=/bin/sh -c echo BECOME-SUCCESS-yiijnhpzzbumymhsqxfncgovifyyidrp ; /usr/libexec/platform-python /home/ansible/.ansible/tmp/ansible-tmp-1669036550.9816682-94749-112264215246105/AnsiballZ_setup.py
+Nov 21 22:15:51 ansible2 sudo[104059]: pam_systemd(sudo:session): Cannot create session: Already running in a session or user slice
+Nov 21 22:15:51 ansible2 sudo[104059]: pam_unix(sudo:session): session opened for user root by ansible(uid=0)
+Nov 21 22:15:52 ansible2 sudo[104059]: pam_unix(sudo:session): session closed for user root
+Nov 21 22:15:53 ansible2 sudo[104252]: ansible : TTY=pts/0 ; PWD=/home/ansible ; USER=root ; COMMAND=/bin/sh -c echo BECOME-SUCCESS-xxarimcazeuhkjyhuarnzyjyimeuizld ; /usr/libexec/platform-python /home/ansible/.ansible/tmp/ansible-tmp-1669036552.7701154-94800-31052972740222/AnsiballZ_dnf.py
+Nov 21 22:15:53 ansible2 sudo[104252]: pam_systemd(sudo:session): Cannot create session: Already running in a session or user slice
+Nov 21 22:15:53 ansible2 sudo[104252]: pam_unix(sudo:session): session opened for user root by ansible(uid=0)
+Nov 21 22:15:58 ansible2 sudo[104252]: pam_unix(sudo:session): session closed for user root
+Nov 21 22:15:59 ansible2 sudo[104848]: ansible : TTY=pts/0 ; PWD=/home/ansible ; USER=root ; COMMAND=/bin/sh -c echo BECOME-SUCCESS-htirhgziviugnnlovbcsirvaegmbsfft ; /usr/libexec/platform-python /home/ansible/.ansible/tmp/ansible-tmp-1669036559.030439-94800-130334384821799/AnsiballZ_dnf.py
+Nov 21 22:15:59 ansible2 sudo[104848]: pam_systemd(sudo:session): Cannot create session: Already running in a session or user slice
+Nov 21 22:15:59 ansible2 sudo[104848]: pam_unix(sudo:session): session opened for user root by ansible(uid=0)
+Nov 21 22:16:03 ansible2 sudo[104848]: pam_unix(sudo:session): session closed for user root
+Nov 21 22:17:03 ansible2 sshd[103847]: Received disconnect from 192.168.10.10 port 54786:11: disconnected by user
+Nov 21 22:17:03 ansible2 sshd[103847]: Disconnected from user ansible 192.168.10.10 port 54786
+Nov 21 22:17:03 ansible2 sshd[103831]: pam_unix(sshd:session): session closed for user ansible
+Nov 21 22:18:08 ansible2 sshd[104915]: Accepted publickey for ansible from 192.168.10.10 port 54790 ssh2: RSA SHA256:qNrfY3UCGpXtK5mphLmycwcYI/XX+MEF63YwZsYoYoI
+Nov 21 22:18:08 ansible2 systemd[104919]: pam_unix(systemd-user:session): session opened for user ansible by (uid=0)
+Nov 21 22:18:08 ansible2 sshd[104915]: pam_unix(sshd:session): session opened for user ansible by (uid=0)
+Nov 21 22:18:09 ansible2 sudo[105143]: ansible : TTY=pts/0 ; PWD=/home/ansible ; USER=root ; COMMAND=/bin/sh -c echo BECOME-SUCCESS-kmclucjfokdvkwdanrfrqkkryrkrbdig ; /usr/libexec/platform-python /home/ansible/.ansible/tmp/ansible-tmp-1669036688.3889744-94967-173316060552941/AnsiballZ_setup.py
+Nov 21 22:18:09 ansible2 sudo[105143]: pam_systemd(sudo:session): Cannot create session: Already running in a session or user slice
+Nov 21 22:18:09 ansible2 sudo[105143]: pam_unix(sudo:session): session opened for user root by ansible(uid=0)
+Nov 21 22:18:09 ansible2 sudo[105143]: pam_unix(sudo:session): session closed for user root
+Nov 21 22:18:10 ansible2 sudo[105336]: ansible : TTY=pts/0 ; PWD=/home/ansible ; USER=root ; COMMAND=/bin/sh -c echo BECOME-SUCCESS-hmmxjphhkawklkipfwruyoupjapasdxf ; /usr/libexec/platform-python /home/ansible/.ansible/tmp/ansible-tmp-1669036690.1155283-95017-156178665729960/AnsiballZ_dnf.py
+Nov 21 22:18:10 ansible2 sudo[105336]: pam_systemd(sudo:session): Cannot create session: Already running in a session or user slice
+Nov 21 22:18:10 ansible2 sudo[105336]: pam_unix(sudo:session): session opened for user root by ansible(uid=0)
+Nov 21 22:18:12 ansible2 sudo[105336]: pam_unix(sudo:session): session closed for user root
+Nov 21 22:18:13 ansible2 sudo[105493]: ansible : TTY=pts/0 ; PWD=/home/ansible ; USER=root ; COMMAND=/bin/sh -c echo BECOME-SUCCESS-ljiueyjofvedingvydptwjuwagsfiddu ; /usr/libexec/platform-python /home/ansible/.ansible/tmp/ansible-tmp-1669036692.8549337-95017-95928485717692/AnsiballZ_dnf.py
+Nov 21 22:18:13 ansible2 sudo[105493]: pam_systemd(sudo:session): Cannot create session: Already running in a session or user slice
+Nov 21 22:18:13 ansible2 sudo[105493]: pam_unix(sudo:session): session opened for user root by ansible(uid=0)
+Nov 21 22:18:15 ansible2 sudo[105493]: pam_unix(sudo:session): session closed for user root
+Nov 21 22:19:15 ansible2 sshd[104931]: Received disconnect from 192.168.10.10 port 54790:11: disconnected by user
+Nov 21 22:19:15 ansible2 sshd[104931]: Disconnected from user ansible 192.168.10.10 port 54790
+Nov 21 22:19:15 ansible2 sshd[104915]: pam_unix(sshd:session): session closed for user ansible
+Nov 21 22:19:25 ansible2 systemd[104921]: pam_unix(systemd-user:session): session closed for user ansible
+Nov 22 19:43:01 ansible2 sshd[105834]: Accepted publickey for ansible from 192.168.10.10 port 54842 ssh2: RSA SHA256:qNrfY3UCGpXtK5mphLmycwcYI/XX+MEF63YwZsYoYoI
+Nov 22 19:43:01 ansible2 systemd[105839]: pam_unix(systemd-user:session): session opened for user ansible by (uid=0)
+Nov 22 19:43:02 ansible2 sshd[105834]: pam_unix(sshd:session): session opened for user ansible by (uid=0)
+Nov 22 19:43:03 ansible2 sudo[106065]: ansible : TTY=pts/0 ; PWD=/home/ansible ; USER=root ; COMMAND=/bin/sh -c echo BECOME-SUCCESS-linmhpctkbopqonvoeyayeyikneexgks ; /usr/libexec/platform-python /home/ansible/.ansible/tmp/ansible-tmp-1669113782.3055143-96295-67117734587941/AnsiballZ_stat.py
+Nov 22 19:43:03 ansible2 sudo[106065]: pam_systemd(sudo:session): Cannot create session: Already running in a session or user slice
+Nov 22 19:43:03 ansible2 sudo[106065]: pam_unix(sudo:session): session opened for user root by ansible(uid=0)
+Nov 22 19:43:04 ansible2 sudo[106065]: pam_unix(sudo:session): session closed for user root
+Nov 22 19:43:04 ansible2 sudo[106147]: ansible : TTY=pts/0 ; PWD=/home/ansible ; USER=root ; COMMAND=/bin/sh -c echo BECOME-SUCCESS-sjhseingzfsvkufvptswkrufugszlbba ; /usr/libexec/platform-python /home/ansible/.ansible/tmp/ansible-tmp-1669113782.3055143-96295-67117734587941/AnsiballZ_file.py
+Nov 22 19:43:04 ansible2 sudo[106147]: pam_systemd(sudo:session): Cannot create session: Already running in a session or user slice
+Nov 22 19:43:04 ansible2 sudo[106147]: pam_unix(sudo:session): session opened for user root by ansible(uid=0)
+Nov 22 19:43:04 ansible2 sudo[106147]: pam_unix(sudo:session): session closed for user root
+Nov 22 19:43:31 ansible2 sudo[106352]: ansible : TTY=pts/0 ; PWD=/home/ansible ; USER=root ; COMMAND=/bin/sh -c echo BECOME-SUCCESS-wtaqlgxcwzkhbbfowqnsztmrxsfuqkwg ; /usr/libexec/platform-python /home/ansible/.ansible/tmp/ansible-tmp-1669113810.1674614-96475-244263290558756/AnsiballZ_command.py
+Nov 22 19:43:31 ansible2 sudo[106352]: pam_systemd(sudo:session): Cannot create session: Already running in a session or user slice
+Nov 22 19:43:31 ansible2 sudo[106352]: pam_unix(sudo:session): session opened for user root by ansible(uid=0)
+Nov 22 19:43:31 ansible2 sudo[106352]: pam_unix(sudo:session): session closed for user root
+Nov 22 19:44:31 ansible2 sshd[105852]: Received disconnect from 192.168.10.10 port 54842:11: disconnected by user
+Nov 22 19:44:31 ansible2 sshd[105852]: Disconnected from user ansible 192.168.10.10 port 54842
+Nov 22 19:44:31 ansible2 sshd[105834]: pam_unix(sshd:session): session closed for user ansible
+Nov 22 19:44:41 ansible2 systemd[105841]: pam_unix(systemd-user:session): session closed for user ansible
+Nov 23 20:59:33 ansible2 sshd[108703]: Accepted publickey for ansible from 192.168.10.10 port 55140 ssh2: RSA SHA256:qNrfY3UCGpXtK5mphLmycwcYI/XX+MEF63YwZsYoYoI
+Nov 23 20:59:33 ansible2 systemd[108708]: pam_unix(systemd-user:session): session opened for user ansible by (uid=0)
+Nov 23 20:59:33 ansible2 sshd[108703]: pam_unix(sshd:session): session opened for user ansible by (uid=0)
+Nov 23 20:59:36 ansible2 sudo[108934]: ansible : TTY=pts/0 ; PWD=/home/ansible ; USER=root ; COMMAND=/bin/sh -c echo BECOME-SUCCESS-ginbtxwzjfyiqejmfedvnwfklzxzprao ; /usr/libexec/platform-python /home/ansible/.ansible/tmp/ansible-tmp-1669204774.1922941-109947-61061578589194/AnsiballZ_setup.py
+Nov 23 20:59:36 ansible2 sudo[108934]: pam_systemd(sudo:session): Cannot create session: Already running in a session or user slice
+Nov 23 20:59:36 ansible2 sudo[108934]: pam_unix(sudo:session): session opened for user root by ansible(uid=0)
+Nov 23 20:59:37 ansible2 sudo[108934]: pam_unix(sudo:session): session closed for user root
+Nov 23 20:59:38 ansible2 sudo[109127]: ansible : TTY=pts/0 ; PWD=/home/ansible ; USER=root ; COMMAND=/bin/sh -c echo BECOME-SUCCESS-oeqlqiucnqyhdzxfcpnjmywhuttmekag ; /usr/libexec/platform-python /home/ansible/.ansible/tmp/ansible-tmp-1669204777.762709-110040-177021432977027/AnsiballZ_slurp.py
+Nov 23 20:59:38 ansible2 sudo[109127]: pam_systemd(sudo:session): Cannot create session: Already running in a session or user slice
+Nov 23 20:59:38 ansible2 sudo[109127]: pam_unix(sudo:session): session opened for user root by ansible(uid=0)
+Nov 23 20:59:39 ansible2 sudo[109127]: pam_unix(sudo:session): session closed for user root
+Nov 23 21:00:39 ansible2 sshd[108721]: Received disconnect from 192.168.10.10 port 55140:11: disconnected by user
+Nov 23 21:00:39 ansible2 sshd[108721]: Disconnected from user ansible 192.168.10.10 port 55140
+Nov 23 21:00:39 ansible2 sshd[108703]: pam_unix(sshd:session): session closed for user ansible
+Nov 23 21:00:49 ansible2 systemd[108711]: pam_unix(systemd-user:session): session closed for user ansible
+Nov 23 21:01:22 ansible2 sshd[109186]: Accepted publickey for ansible from 192.168.10.10 port 55150 ssh2: RSA SHA256:qNrfY3UCGpXtK5mphLmycwcYI/XX+MEF63YwZsYoYoI
+Nov 23 21:01:22 ansible2 systemd[109189]: pam_unix(systemd-user:session): session opened for user ansible by (uid=0)
+Nov 23 21:01:22 ansible2 sshd[109186]: pam_unix(sshd:session): session opened for user ansible by (uid=0)
+Nov 23 21:01:24 ansible2 sudo[109414]: ansible : TTY=pts/0 ; PWD=/home/ansible ; USER=root ; COMMAND=/bin/sh -c echo BECOME-SUCCESS-smgkcmdzvnbwdxleiazivlejdpdesbdn ; /usr/libexec/platform-python /home/ansible/.ansible/tmp/ansible-tmp-1669204882.9376483-110421-45932093387845/AnsiballZ_setup.py
+Nov 23 21:01:24 ansible2 sudo[109414]: pam_systemd(sudo:session): Cannot create session: Already running in a session or user slice
+Nov 23 21:01:24 ansible2 sudo[109414]: pam_unix(sudo:session): session opened for user root by ansible(uid=0)
+Nov 23 21:01:25 ansible2 sudo[109414]: pam_unix(sudo:session): session closed for user root
+Nov 23 21:01:26 ansible2 sudo[109607]: ansible : TTY=pts/0 ; PWD=/home/ansible ; USER=root ; COMMAND=/bin/sh -c echo BECOME-SUCCESS-breqenpcbwihdfjxyjvyhhuvorkbsvof ; /usr/libexec/platform-python /home/ansible/.ansible/tmp/ansible-tmp-1669204886.0107-110562-207445962541645/AnsiballZ_slurp.py
+Nov 23 21:01:26 ansible2 sudo[109607]: pam_systemd(sudo:session): Cannot create session: Already running in a session or user slice
+Nov 23 21:01:26 ansible2 sudo[109607]: pam_unix(sudo:session): session opened for user root by ansible(uid=0)

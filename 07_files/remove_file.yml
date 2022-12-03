@@ -1,0 +1,9 @@
+---
+- name: Test
+  gather_facts: no
+  hosts: all
+  tasks:
+    - name: "Remove the /home/devops/users.txt file."
+      file:
+        path: /home/devops/users.txt
+        state: absent

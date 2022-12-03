@@ -1,0 +1,52 @@
+---
+# 1) Install package - httpd, mod_ssl
+- name: "Install package - httpd, mod_ssl"
+  yum:
+    name: 
+      - httpd
+      - mod_ssl
+    state: latest
+  
+# 2) start service - httpd.service
+- name: "start service - httpd.service"
+  service:
+    name: httpd
+    state: started
+    enabled: yes
+
+      
+# 3) Configure file - /etc/httpd/conf.d/vhost.conf.j2
+- name: "Configure file - /etc/httpd/conf.d/vhost.conf.j2, /var/www/vhosts/ansible4/index.html"
+  template:
+    src: vhost.conf.j2
+    dest: /etc/httpd/conf.d/vhost.conf
+    owner: root
+    group: root
+    mode: '0644'
+  notify: 
+    - restart httpd
+
+- name: "/var/www/vhost/{{ ansible_hostname }}"
+  file:
+    path: "/var/www/vhosts/{{ ansible_hostname }}"
+    state: directory
+    mode: '0755'
+
+
+- name: "HTML content is installed"
+  copy: 
+    src: files/html/index.html
+    dest: "/var/www/vhosts/{{ ansible_hostname }}"
+
+#   * notify: restart httpd
+# 4) Configure service with firewalld - http, https
+- name: "Configure service with firewalld - http, https"
+  firewalld:
+    service: "{{ item }}"
+    state: enabled
+    permanent: yes
+    immediate: yes
+  loop:
+    - http
+    - https
+

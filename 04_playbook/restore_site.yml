@@ -1,0 +1,31 @@
+---
+- name: Restore the 1st Lab
+  hosts: webservers
+  tasks:
+    # firewall-cmd --permanent --remove-service={http,https} ; firewall-cmd --reload
+    - name: Close the port to firewall - http(80/tcp)
+      firewalld:
+        service: http
+        state: disabled
+        permanent: yes
+        immediate: yes
+
+    # systemctl disable --now httpd
+    - name: Down the web service - httpd.service
+      service:
+        name: httpd
+        state: stopped
+        enabled: no
+    
+    # rm -f /var/www/html/index.html
+    - name: remove the file - /var/www/html/index.html
+      file:
+        path: /var/www/html/index.html
+        state: absent 
+
+    # yum remove httpd -y
+    - name: remove packages - httpd
+      yum: 
+        name: httpd
+        state: absent
+

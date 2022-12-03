@@ -1,0 +1,48 @@
+---
+- name: "인트라넷 웹서버 설정"
+  hosts: web1.example.com
+  tasks:
+    # 1) 패키지 설치 - httpd, firewalld
+    - name: "패키지 설치 - httpd, firewalld"
+      yum: 
+        name: 
+        - httpd
+        - firewalld
+        state: present
+
+    # 2) 웹 페이지 만들기 - /var/www/html/index.html
+    - name: "웹 페이지 만들기 - /var/www/html/index.html"
+      lineinfile:
+        path: /var/www/html/index.html
+        line: Welcome To My Server
+        create: yes
+    # 3) 서비스 기동 - httpd, firewalld
+    - name: "서비스 기동 - httpd, firewalld"
+      service:
+        name: "{{ item }}"
+        state: started
+        enabled: yes
+      loop:
+        - httpd
+        - firewalld        
+    # 4) 방화벽에 등록 - http(80/tcp), https(443/tcp)
+    - name: "방화벽에 서비스 등록 - http, https"
+      firewalld:
+        service: "{{ item }}"
+        state: enabled
+        permanent: yes
+        immediate: yes
+      loop:
+        - http
+        - https
+
+# 5) 웹 서비스 가능 유무 판별
+- name: "인프라넷 웹서버 확인"
+  hosts: localhost
+  become: no
+  tasks:
+  - name: "웹 서버 요청 작업 및 확인"
+    uri: 
+      url: http://web1.example.com
+      return_content: yes
+      status_code: 200

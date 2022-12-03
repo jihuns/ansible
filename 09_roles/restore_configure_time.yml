@@ -1,0 +1,15 @@
+---
+- name: "시간을 되돌리는자"
+  hosts: all
+  tasks:
+  - name: "시간되돌리기"
+    timezone:
+      name: Asia/Seoul
+  - name: restart NTP 서비스
+    service:
+      name: chronyd
+      state: restarted
+
+
+      
+    
